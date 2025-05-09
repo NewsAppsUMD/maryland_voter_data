@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryland 2020 Election</title>
+    <link rel="preload" href="/static/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="/static/style.css">
+    </noscript>
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <!-- Include static js, Chart.js and D3.js -->
+    <script src="static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+      
+    <script src="//static.dwcdn.net/js/events.js"></script>
+    <script type="text/javascript">
+      // Global variable: default party selection for the map.
+      let chartId = 'L9bRz';
+    </script>
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <h1>Who Votes in Maryland?</h1><br>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('election_2024') }}">2024 Election</a></li>
+        <li><a href="{{ url_for('gender') }}">Turnout By Gender and Age</a></li>
+        <li><a href="{{ url_for('election_2020') }}">2020 Election</a></li>
+
+      </ul>
+    </nav>
+    <h2 style = "text-align: left;text-decoration: underline;"></h2>
+    <div class="container">
+      <div class="map" id="map">
+        <iframe title="Maryland Counties Map" id="datawrapper-chart-YcZmw" src="https://datawrapper.dwcdn.net/L9bRz/1/" scrolling="no" frameborder="0" data-external="1"></iframe>
+        <div class="segment-control">
+          <div class="segment-slider"></div>
+          <button class="segment active" data-val="L9bRz">Democrats</button>
+          <button class="segment"      data-val="Ost0x">Republicans</button>
+          <button class="segment"      data-val="nPCDo">Unaffiliated</button>
+        </div>
+      </div>
+      <div class="tooltip" id="tooltip">
+        <div id="tooltipDropdown" class="no-selection">     
+          <div id="statewideSummary" style="margin-bottom:10px; font-size:1.2em;"></div> 
+          <!-- 2) header (map hover county name + turnout) -->
+          <div id="tooltipHeader">
+            <p>Hover over a county on the map to see details here, or use the dropdown below!</p>
+          </div>
+          <div id="countySelector">
+            <label
+              id="dropdownLabel"
+              for="county-dropdown"
+              style="font-size:0.9em;"
+            >
+              Select another county:
+            </label>
+            <select id="county-dropdown" style="width:auto;">
+              <option value="">-- Select a County --</option>
+              {% for county in counties %}
+                <option value="{{ county }}">{{ county }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        
+      
+          <div id="tooltipText" style="margin: 10px 0; font-size: 0.9em;"></div>
+      
+          <!-- 5) comparison label + range bar (hidden until selection) -->
+          <p id="compLabel" style="display:none; margin-top:8px;">
+            Comparison to Statewide Average:
+          </p>
+          <div id="tooltipRange" style="display:none; margin-top:4px;"></div>
+              </div>
+      </div>      
+      
+    </div>
+    
+    <script>
+      // grab once
+const dropdown      = document.getElementById('county-dropdown');
+const tooltipHeader = document.getElementById('tooltipHeader');
+const countyPrompt  = document.getElementById('countyPrompt');
+const tooltipBox    = document.getElementById('tooltipDropdown');
+
+// move the dropdown up next to the header
+function swapDropdownIntoHeader() {
+  // only if it isn't already there
+  if (tooltipHeader.nextElementSibling !== dropdown) {
+    // hide the “Select a County” prompt
+    countyPrompt.style.display = 'none';
+    // move <select> right after the header
+    tooltipHeader.parentNode.insertBefore(dropdown, tooltipHeader.nextSibling);
+  }
+}
+
+// move the dropdown back below the prompt
+function resetDropdownPosition() {
+  // only if it isn't already in place
+  if (countyPrompt.nextElementSibling !== dropdown) {
+    // put <select> right after the prompt
+    tooltipBox.insertBefore(dropdown, countyPrompt.nextSibling);
+    // show the prompt again
+    countyPrompt.style.display = '';
+  }
+}
+
+      const partyAverages = {{ partyAverages|tojson }};
+      const partyRanges   = {{ partyRanges|tojson }};
+      const statewideAverages = {{ statewideAverages|tojson }};
+// compute statewide total by summing every county’s total
+
+      // map Datawrapper chartId → party code
+      const chartIdToParty = {
+        'L9bRz': 'DEM',   // Democrats map
+        'Ost0x': 'REP',   // Republicans map
+        'nPCDo': 'UNA'    // Unaffiliated map
+      };
+    
+      // colors for the line+marker
+      const partyColors = {
+        DEM: 'steelblue',
+        REP: 'crimson',
+        UNA: 'goldenrod'
+      };
+      const countyTotals    = {{ countyTotals|tojson }};
+      // human‐readable party names
+      const partyFullNames  = {
+        DEM: 'Democrats',
+        REP: 'Republicans',
+        UNA: 'Unaffiliated'
+      };
+      const statewideTotal = Object.values(countyTotals).reduce((sum, v) => sum + v, 0);
+
+      // updates the #statewideSummary text for the active party
+      function updateStatewideSummary() {
+        const party = chartIdToParty[chartId];
+        const name  = partyFullNames[party];
+        const total = statewideTotal.toLocaleString();
+        const pct   = (statewideAverages[party] || 0).toFixed(1);
+
+        document.getElementById('statewideSummary').innerHTML =
+          `<b><u>${total}</u></b> people voted in Maryland in 2020.<br>` +
+          `Of these 2020 voters, <b><u>${pct}%</u></b> were registered ${name}.`;
+      }
+
+      // on initial load:
+      updateStatewideSummary();
+      // — show the Democrats‐party summary in the #tooltipText area, hide comparison
+
+      // Global variables to track current county and debounce.
+      let currentCounty = "";
+      let lastCounty = "";
+      let debounceTimeout;
+      
+      // Select the tooltip element.
+      const tooltip = document.getElementById('tooltip');
+      
+      datawrapper.on('region.mouseenter', ({data}) => {
+  function formatCountyName(name) {
+    return (name === "Baltimore City" || name === "Baltimore County")
+      ? name
+      : name + " County";
+  }
+  const newCounty = data.id || data.County;
+  if (newCounty === lastCounty) return;
+  lastCounty = newCounty;
+
+  // Build just the header
+  let headerHTML = `<h2>${formatCountyName(newCounty)}</h2>`;
+  if (chartId === 'YcZmw') {
+    headerHTML += `<p>Democratic Turnout: ${((data.value||data.DEM)||0).toFixed(2)}%</p>`;
+  } else if (chartId === 'xElgG') {
+    headerHTML += `<p>Republican Turnout: ${((data.value||data.REP)||0).toFixed(2)}%</p>`;
+  } else {
+    headerHTML += `<p>Unaffiliated Turnout: ${((data.value||data.UNA)||0).toFixed(2)}%</p>`;
+  }
+
+  // Only overwrite the header div
+  document.getElementById('tooltipHeader').innerHTML = headerHTML;
+  const dropdown = document.getElementById('county-dropdown');
+  dropdown.value = newCounty;
+  // optionally fire its change handler so you don’t duplicate updateChart calls:
+  dropdown.dispatchEvent(new Event('change'));
+
+  // Debounce & redraw the chart
+  if (debounceTimeout) clearTimeout(debounceTimeout);
+  debounceTimeout = setTimeout(() => {
+    // 1) text paragraph
+    const fmt = formatCountyName(newCounty);
+    tooltipDropdown.classList.add('selection');
+    tooltipDropdown.classList.remove('no-selection');
+    const total = countyTotals[newCounty] || 0;
+    const party = chartIdToParty[chartId];
+    const name  = partyFullNames[party] || party;
+      // numeric percentages
+    const countyPctNum = partyAverages[party][newCounty] || 0;
+    const statePctNum  = statewideAverages[party]      || 0;
+
+    // formatted percentages
+    const countyPct = countyPctNum.toFixed(1);
+    const statePct  = statePctNum.toFixed(1);
+
+    // decide comparison
+    const diff      = countyPctNum - statePctNum;
+    const threshold = 2.5;  // ±2.5% → “about the same”
+    let compPhrase;
+    if (Math.abs(diff) <= threshold)       compPhrase = 'about the same as';
+    else if (diff > threshold)             compPhrase = 'more than';
+    else                                   compPhrase = 'less than';
+    document
+      .getElementById('tooltipText')
+      .innerHTML = 
+        `<b><u>${total.toLocaleString()}</u></b> people voted in <b><u>${fmt}</u></b> in 2020.<br><br>`
+      + `Of these 2020 voters, <b><u>${countyPct}%</u></b> were registered ${name}. `  
+      + `This is <b><u>${compPhrase}</u></b> the statewide average of 2020 voters who were registered ${name}, which was <b><u>${statePct}%</u></b>.`;
+
+      document.getElementById('compLabel').style.display   = 'block';
+      document.getElementById('tooltipRange').style.display = 'block';
+
+    updateChart(newCounty);
+  }, 0);
+});
+
+document.getElementById('county-dropdown')
+  .addEventListener('change', function() {
+    const selected = this.value;
+    if (!selected) return;
+
+    function formatCountyName(name) {
+          return (name === "Baltimore City" || name === "Baltimore County") ? name : name + " County";
+        }
+    // Overwrite header with just the county name
+    document.getElementById('tooltipHeader').innerHTML = `<h2 style = margin-block-start: 1em;>${formatCountyName(selected)}</h2>`;
+    // new text paragraph:
+    const fmt = formatCountyName(selected);
+    if (!selected) {
+      tooltipDropdown.classList.remove('selection');
+      tooltipDropdown.classList.add('no-selection');    
+      return;
+    }
+    // else (a county was picked):
+    tooltipDropdown.classList.replace('no-selection','selection');
+
+    const total = countyTotals[selected] || 0;
+    const party = chartIdToParty[chartId];
+    const name  = partyFullNames[party] || party;
+    const countyPctNum = partyAverages[party][selected] || 0;
+    const statePctNum  = statewideAverages[party]     || 0;
+    const countyPct = countyPctNum.toFixed(1);
+    const statePct  = statePctNum.toFixed(1);
+    const diff      = countyPctNum - statePctNum;
+    const threshold = 2.5;
+    let compPhrase;
+    if (Math.abs(diff) <= threshold)       compPhrase = 'about the same as';
+    else if (diff > threshold)             compPhrase = 'more than';
+    else                                   compPhrase = 'less than';
+    document
+      .getElementById('tooltipText')
+      .innerHTML = 
+        `<b><u>${total.toLocaleString()}</u></b> people voted in <b><u>${fmt}</u></b> in 2020.<br><br>`
+      + `Of these 2020 voters, <b><u>${countyPct}%</u></b> were registered ${name}. `  
+      + `This is <b><u>${compPhrase}</u></b> the statewide average of 2020 voters who were registered ${name}, which was <b><u>${statePct}%</u></b>.`;
+
+      document.getElementById('compLabel').style.display   = 'block';
+      document.getElementById('tooltipRange').style.display = 'block';
+    drawSingleRange(selected);
+    updateChart(selected);
+  });
+
+      // -- D3.js CHART CODE --
+      // (Note: The chart will now be drawn into the #tooltipChart container.)
+      const margin = {top: 40, right: 20, bottom: 40, left: 40};
+      const width = 500 - margin.left - margin.right;
+      const height = 500 - margin.top - margin.bottom;
+      
+      const colorMap = {
+        "Democrats": "rgba(3, 89, 127)",
+        "Republicans": "rgba(200, 30, 30)",
+        "Unaffiliated": "rgba(255, 185, 64)",
+        "Other": "rgba(203, 202, 202)"
+      };
+      
+      // Modified drawChart: Draws the chart inside #tooltipChart and adds a title with the county name.
+      function drawChart(data, county) {
+        function formatCountyName(name) {
+          return (name === "Baltimore City" || name === "Baltimore County") ? name : name + " County";
+        }
+        
+        const barsData = data.ages.map((age, i) => ({
+          age: age,
+          segments: [
+            { party: "Democrats", value: data.dem[i] },
+            { party: "Republicans", value: data.rep[i] },
+            { party: "Unaffiliated", value: data.unaffiliated[i] },
+            { party: "Other", value: data.other[i] }
+          ]
+        }));
+        
+        // Sort segments so that the largest is drawn last.
+        barsData.forEach(d => {
+          d.segments.sort((a, b) => a.value - b.value);
+        });
+        
+        // Remove any previous SVG content in the tooltip chart placeholder.
+        d3.select("#tooltipChart").select("svg").remove();
+        
+        const svg = d3.select("#tooltipChart")
+                      .append("svg")
+                      .attr("width", width + margin.left + margin.right)
+                      .attr("height", height + margin.top + margin.bottom)
+                      .append("g")
+                      .attr("transform", `translate(${margin.left},${margin.top})`);
+        
+        const x = d3.scaleBand()
+                    .domain(barsData.map(d => d.age))
+                    .range([0, width])
+                    .padding(0.2);
+        
+        const y = d3.scaleLinear()
+                    .domain([0, 100])
+                    .range([height, 0]);
+        
+        svg.append("g")
+           .attr("transform", `translate(0, ${height})`)
+           .call(d3.axisBottom(x));
+        
+        svg.append("g")
+           .call(d3.axisLeft(y));
+        
+        barsData.forEach(d => {
+          let cumulative = 0;
+          const g = svg.append("g")
+                       .attr("class", "bar")
+                       .attr("transform", `translate(${x(d.age)},0)`);
+          
+          d.segments.forEach(segment => {
+            const y0 = y(cumulative);
+            cumulative += segment.value;
+            const y1 = y(cumulative);
+            const barHeight = y0 - y1;
+            
+            g.append("rect")
+             .attr("x", 0)
+             .attr("y", y1)
+             .attr("width", x.bandwidth())
+             .attr("height", barHeight)
+             .attr("fill", colorMap[segment.party]);
+            
+            if (barHeight > 15) {
+              const txt = g.append("text")
+  .attr("x", x.bandwidth() / 2)
+  .attr("y", y1 + barHeight / 2 - 4)   // adjust so two lines center nicely
+  .attr("text-anchor", "middle")
+  .attr("fill", "white")
+  .attr("font-size", "9px");
+
+txt.append("tspan")
+   .attr("x", x.bandwidth() / 2)
+   .attr("dy", "0em")
+   .text(segment.party);
+
+txt.append("tspan")
+   .attr("x", x.bandwidth() / 2)
+   .attr("dy", "1.2em")
+   .text(`${segment.value.toFixed(1)}%`);          
+            }
+          });
+        });
+        
+        const title = svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", 0)               // baseline for first line
+    .attr("text-anchor", "middle")
+    .attr("font-size", "16px")
+    .attr("fill", "black");
+
+// first line
+title.append("tspan")
+    .attr("x", width / 2)
+    .attr("dy", "-1.8em")         // lift up 1em above y=0
+    .text("Party Affiliation of 2020 Voters by Age");
+
+// second line
+title.append("tspan")
+    .attr("x", width / 2)
+    .attr("dy", "1.2em")        // drop down 1.2em from the previous line
+    .text("for " + formatCountyName(county));
+      }
+      
+      // updateChart fetches data for the county and calls drawChart.
+      function updateChart(county) {
+        fetch('/data2020/' + encodeURIComponent(county))
+          .then(response => response.json())
+          .then(data => drawChart(data, county))
+          .catch(err => console.error(err));
+      }
+
+      function drawSingleRange(county) {
+  const party = chartIdToParty[chartId];
+  if (!party) {
+    d3.select("#tooltipRange").selectAll("svg").remove();
+    return;
+  }
+
+  // party’s county‐by‐county min/max & this county’s avg
+  const { min, max } = partyRanges[party];
+  const avg = partyAverages[party][county] ?? min;
+
+  // statewide avg for this party
+  const stateAvg = statewideAverages[party] ?? min;
+
+  // clear old
+  d3.select("#tooltipRange").selectAll("svg").remove();
+
+  // dimensions
+  const w   = 300;
+  const h   = 60;    // extra height for three labels
+  const pad = 20;
+  const yMid = h / 2;
+
+  // x-scale
+  const x = d3.scaleLinear()
+              .domain([min, max])
+              .range([pad, w - pad]);
+
+  // create svg
+  const svg = d3.select("#tooltipRange")
+                .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+  // 1) baseline line
+  svg.append("line")
+     .attr("x1", x(min)).attr("y1", yMid)
+     .attr("x2", x(max)).attr("y2", yMid)
+     .attr("stroke", partyColors[party])
+     .attr("stroke-width", 2);
+
+  // 2) county marker (circle)
+  svg.append("circle")
+     .attr("cx", x(avg))
+     .attr("cy", yMid)
+     .attr("r", 6)
+     .attr("fill", partyColors[party])
+     .attr("stroke", "#333");
+
+  const tickHeight = 25;
+  svg.append("line")
+     .attr("x1", x(stateAvg))
+     .attr("y1", yMid - tickHeight/2)
+     .attr("x2", x(stateAvg))
+     .attr("y2", yMid + tickHeight/2)
+     .attr("stroke", "grey")
+     .attr("stroke-width", 3)
+     .attr("opacity", 0.8);
+
+  // 4) min label above left
+  svg.append("text")
+     .attr("x", x(min)).attr("y", yMid - 15)
+     .attr("text-anchor", "middle")
+     .attr("font-size", "10px")
+     .text(`${min.toFixed(1)}%`);
+
+  // 5) max label above right
+  svg.append("text")
+     .attr("x", x(max)).attr("y", yMid - 15)
+     .attr("text-anchor", "middle")
+     .attr("font-size", "10px")
+     .text(`${max.toFixed(1)}%`);
+
+    svg.append("text")
+     .attr("x", x(stateAvg))
+     .attr("y", yMid - tickHeight/2 - 5)
+     .attr("text-anchor", "middle")
+     .attr("font-size", "10px")
+     .attr("font-style", "bold")
+     .text(`State Avg: ${stateAvg.toFixed(1)}%`);
+
+  // 7) county label below its circle
+  svg.append("text")
+     .attr("x", x(avg)).attr("y", yMid + 25)
+     .attr("text-anchor", "middle")
+     .attr("font-size", "10px")
+     .attr("font-weight", "bold")
+     .text(`${avg.toFixed(1)}%`);
+}
+
+
+const control   = document.querySelector('.segment-control');
+const buttons   = control.querySelectorAll('.segment');
+const slider    = control.querySelector('.segment-slider');
+const gap       = 8;    // must match --gap in CSS (in px)
+
+// map your party IDs → colors
+const partyColors2 = {
+  'L9bRz': 'steelblue',   // blue
+  'Ost0x': 'crimson',   // red
+  'nPCDo': 'goldenrod'    // yellow
+};
+
+buttons.forEach((btn, idx) => {
+  btn.addEventListener('click', () => {
+    // 1) toggle active text color
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2) slide the highlight
+    slider.style.transform =
+      `translateX(calc(${idx * 100}% + ${idx * gap}px))`;
+
+    // 3) change background color per party
+    slider.style.backgroundColor = partyColors2[btn.dataset.val];
+
+    // 4) switch the map & reset tooltip summary
+    switchVis(btn.dataset.val);
+    chartId = btn.dataset.val;
+    updateStatewideSummary();
+
+    // 5) hide any old comparison
+    document.getElementById('compLabel').style.display   = 'none';
+    document.getElementById('tooltipRange').style.display = 'none';
+
+    const dropdown = document.getElementById('county-dropdown');
+    const selected = dropdown.value;
+    if (selected) {
+      // this will update your tooltipText, show the compLabel/Range,
+      // and call drawSingleRange & updateChart under the new chartId
+      dropdown.dispatchEvent(new Event('change'));
+    }
+  });
+});
+
+    </script>
+  </body>
+</html>

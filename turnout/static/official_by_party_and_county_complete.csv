@@ -1,0 +1,409 @@
+County,Election Day,Early Voting,Vote By Mail,Provisional,Eligible Voters,Turnout Percentage,Party,Year
+Allegany,11746,9336,9010,818,43736,70.67,Statewide,2020
+Anne Arundel,39909,112351,149208,10902,405616,77.01,Statewide,2020
+Baltimore City,29561,59663,138217,15128,399685,60.69,Statewide,2020
+Baltimore County,57970,133407,212962,15110,566408,74.05,Statewide,2020
+Calvert,13427,14324,21113,583,67984,72.73,Statewide,2020
+Caroline,4461,7333,3656,465,21177,75.15,Statewide,2020
+Carroll,27681,35414,36117,1868,125361,80.63,Statewide,2020
+Cecil,16511,15950,14213,1122,68819,69.45,Statewide,2020
+Charles,11152,35695,40544,3326,118302,76.68,Statewide,2020
+Dorchester,3700,7308,4941,214,22187,72.85,Statewide,2020
+Frederick,26729,52957,63066,3864,186356,78.68,Statewide,2020
+Garrett,2319,9364,3665,370,20183,77.88,Statewide,2020
+Harford,26853,69434,49525,4024,187092,80.09,Statewide,2020
+Howard,18400,61175,99820,5282,226634,81.49,Statewide,2020
+Kent,2080,4504,3947,375,13495,80.82,Statewide,2020
+Montgomery,40628,128684,348744,19879,673198,79.91,Statewide,2020
+Prince George's,37970,128727,240429,21028,606439,70.6,Statewide,2020
+Queen Anne's,4692,16046,8839,911,37678,80.92,Statewide,2020
+Saint Mary's,12738,20358,21871,1155,73833,76.01,Statewide,2020
+Somerset,2446,4802,2380,644,13637,75.32,Statewide,2020
+Talbot,2888,10407,9094,424,27994,81.49,Statewide,2020
+Washington,26957,17722,21882,1741,99046,68.96,Statewide,2020
+Wicomico,10612,19230,15115,1764,64237,72.73,Statewide,2020
+Worcester,7664,13182,9958,1165,40665,78.62,Statewide,2020
+Allegany,2230,2008,4406,320,12820,69.92,Democrat,2020
+Anne Arundel,11852,37418,83491,5368,174494,79.16,Democrat,2020
+Baltimore City,21777,47906,116560,12030,311610,63.63,Democrat,2020
+Baltimore County,23870,63417,142484,9554,313870,76.25,Democrat,2020
+Calvert,2755,4395,11199,198,24587,75.43,Democrat,2020
+Caroline,870,1818,1914,174,6629,72.05,Democrat,2020
+Carroll,3988,7199,15906,558,33662,82.14,Democrat,2020
+Cecil,3410,4082,6873,397,21601,68.34,Democrat,2020
+Charles,5113,20361,29733,2272,72416,79.37,Democrat,2020
+Dorchester,1201,2534,2968,96,9848,69.04,Democrat,2020
+Frederick,6485,15816,34893,1763,72487,81.33,Democrat,2020
+Garrett,215,1262,1410,93,3990,74.69,Democrat,2020
+Harford,6177,19809,25300,1747,66258,80.04,Democrat,2020
+Howard,6359,28200,62230,3088,118705,84.14,Democrat,2020
+Kent,608,1682,2427,168,6008,81.31,Democrat,2020
+Montgomery,18396,70003,241085,12544,410935,83.23,Democrat,2020
+Prince George's,27566,102606,203637,16713,474841,73.82,Democrat,2020
+Queen Anne's,821,3495,4211,334,11091,79.89,Democrat,2020
+Saint Mary's,3197,5443,10979,449,26373,76.09,Democrat,2020
+Somerset,779,1615,1367,424,5704,73.37,Democrat,2020
+Talbot,696,3096,4878,182,10749,82.35,Democrat,2020
+Washington,5676,4909,11242,695,32791,68.68,Democrat,2020
+Wicomico,3045,6787,8706,900,27194,71.48,Democrat,2020
+Worcester,2057,3348,5131,434,14134,77.61,Democrat,2020
+Allegany,7595,6132,3316,317,22530,77.05,Republican,2020
+Anne Arundel,18435,53050,34312,2997,135457,80.32,Republican,2020
+Baltimore City,3370,5132,7069,949,30163,54.77,Republican,2020
+Baltimore County,22334,49430,37431,2972,142534,78.69,Republican,2020
+Calvert,7914,7462,5791,250,28181,76,Republican,2020
+Caroline,2691,4381,1071,188,10039,82.99,Republican,2020
+Carroll,18068,22164,12882,880,63967,84.41,Republican,2020
+Cecil,9672,9053,4444,483,30880,76.59,Republican,2020
+Charles,3705,10169,5303,501,24711,79.63,Republican,2020
+Dorchester,1887,3938,1366,79,8730,83.28,Republican,2020
+Frederick,13705,26536,14658,1106,68767,81.44,Republican,2020
+Garrett,1747,7215,1773,215,13318,82.22,Republican,2020
+Harford,14802,37716,14355,1395,80038,85.29,Republican,2020
+Howard,7525,19487,15502,1025,52748,82.54,Republican,2020
+Kent,1099,2120,932,142,4996,85.93,Republican,2020
+Montgomery,11198,30430,38188,2742,105561,78.21,Republican,2020
+Prince George's,3727,10399,10518,1169,40095,64.38,Republican,2020
+Queen Anne's,2910,9875,2954,402,18930,85.27,Republican,2020
+Saint Mary's,6778,11153,6560,424,30661,81.26,Republican,2020
+Somerset,1261,2670,684,140,5713,83.23,Republican,2020
+Talbot,1592,5701,2587,165,11711,85.77,Republican,2020
+Washington,16383,9987,6466,629,44161,75.78,Republican,2020
+Wicomico,5458,9456,3877,537,23646,81.74,Republican,2020
+Worcester,4176,7679,3069,492,18275,84.36,Republican,2020
+Allegany,0,4,6,1,20,55,Bread and Roses,2020
+Anne Arundel,10,9,46,8,105,69.52,Bread and Roses,2020
+Baltimore City,2,19,48,10,130,60.77,Bread and Roses,2020
+Baltimore County,11,13,48,9,134,60.45,Bread and Roses,2020
+Calvert,3,1,9,1,20,70,Bread and Roses,2020
+Caroline,0,0,1,1,2,100,Bread and Roses,2020
+Carroll,2,3,15,1,27,77.78,Bread and Roses,2020
+Cecil,2,1,1,0,8,50,Bread and Roses,2020
+Charles,1,2,10,3,19,84.21,Bread and Roses,2020
+Dorchester,1,0,0,0,4,25,Bread and Roses,2020
+Frederick,8,9,23,3,55,78.18,Bread and Roses,2020
+Garrett,0,1,0,1,5,40,Bread and Roses,2020
+Harford,3,7,23,3,50,72,Bread and Roses,2020
+Howard,2,6,30,5,50,86,Bread and Roses,2020
+Kent,0,0,2,0,2,100,Bread and Roses,2020
+Montgomery,9,16,99,6,174,74.71,Bread and Roses,2020
+Prince George's,8,16,52,10,140,61.43,Bread and Roses,2020
+Queen Anne's,1,1,0,2,4,100,Bread and Roses,2020
+Saint Mary's,2,3,8,3,19,84.21,Bread and Roses,2020
+Somerset,0,0,2,0,4,50,Bread and Roses,2020
+Talbot,0,0,2,0,4,50,Bread and Roses,2020
+Washington,0,5,8,2,24,62.5,Bread and Roses,2020
+Wicomico,1,0,4,0,11,45.45,Bread and Roses,2020
+Worcester,0,1,0,1,8,25,Bread and Roses,2020
+Allegany,10,8,15,0,74,44.59,Green,2020
+Anne Arundel,32,84,180,15,564,55.14,Green,2020
+Baltimore City,38,63,195,33,802,41.02,Green,2020
+Baltimore County,74,90,252,34,898,50.11,Green,2020
+Calvert,9,7,26,1,89,48.31,Green,2020
+Caroline,3,5,8,1,33,51.52,Green,2020
+Carroll,16,17,40,3,155,49.03,Green,2020
+Cecil,25,4,18,3,103,48.54,Green,2020
+Charles,8,16,23,6,112,47.32,Green,2020
+Dorchester,4,2,8,0,19,73.68,Green,2020
+Frederick,35,25,71,12,272,52.57,Green,2020
+Garrett,0,3,6,1,21,47.62,Green,2020
+Harford,28,39,54,8,232,55.6,Green,2020
+Howard,13,50,91,4,317,49.84,Green,2020
+Kent,4,3,7,0,19,73.68,Green,2020
+Montgomery,51,135,376,40,1036,58.11,Green,2020
+Prince George's,42,59,166,29,707,41.87,Green,2020
+Queen Anne's,3,7,7,1,41,43.9,Green,2020
+Saint Mary's,9,18,22,4,100,53,Green,2020
+Somerset,4,2,4,3,18,72.22,Green,2020
+Talbot,4,7,9,0,30,66.67,Green,2020
+Washington,17,17,30,0,130,49.23,Green,2020
+Wicomico,5,12,22,4,93,46.24,Green,2020
+Worcester,6,2,8,2,52,34.62,Green,2020
+Allegany,59,26,25,4,204,55.88,Libertarian,2020
+Anne Arundel,267,360,562,80,1922,66.02,Libertarian,2020
+Baltimore City,101,111,199,53,951,48.79,Libertarian,2020
+Baltimore County,306,405,585,72,2227,61.43,Libertarian,2020
+Calvert,63,54,82,7,332,62.05,Libertarian,2020
+Caroline,16,17,13,8,86,62.79,Libertarian,2020
+Carroll,161,124,160,19,670,69.25,Libertarian,2020
+Cecil,91,47,63,6,341,60.7,Libertarian,2020
+Charles,51,73,71,11,349,59.03,Libertarian,2020
+Dorchester,13,19,17,2,78,65.38,Libertarian,2020
+Frederick,180,200,239,27,936,69.02,Libertarian,2020
+Garrett,5,34,13,2,86,62.79,Libertarian,2020
+Harford,173,274,192,31,966,69.36,Libertarian,2020
+Howard,113,179,239,18,812,67.61,Libertarian,2020
+Kent,12,17,2,2,50,66,Libertarian,2020
+Montgomery,247,367,643,104,2030,67.04,Libertarian,2020
+Prince George's,107,175,266,53,1177,51.06,Libertarian,2020
+Queen Anne's,27,62,37,6,188,70.21,Libertarian,2020
+Saint Mary's,81,86,76,9,375,67.2,Libertarian,2020
+Somerset,16,14,4,2,48,75,Libertarian,2020
+Talbot,13,36,20,3,118,61.02,Libertarian,2020
+Washington,111,77,89,7,513,55.36,Libertarian,2020
+Wicomico,52,67,54,9,312,58.33,Libertarian,2020
+Worcester,41,40,31,9,179,67.6,Libertarian,2020
+Allegany,3,2,5,2,19,63.16,Working Class Party,2020
+Anne Arundel,15,21,81,27,197,73.1,Working Class Party,2020
+Baltimore City,25,27,104,28,290,63.45,Working Class Party,2020
+Baltimore County,33,27,109,27,297,65.99,Working Class Party,2020
+Calvert,7,3,6,0,30,53.33,Working Class Party,2020
+Caroline,5,4,4,1,17,82.35,Working Class Party,2020
+Carroll,9,3,13,1,38,68.42,Working Class Party,2020
+Cecil,9,9,11,3,49,65.31,Working Class Party,2020
+Charles,11,11,31,9,83,74.7,Working Class Party,2020
+Dorchester,2,0,3,0,12,41.67,Working Class Party,2020
+Frederick,15,8,29,5,77,74.03,Working Class Party,2020
+Garrett,2,3,1,1,9,77.78,Working Class Party,2020
+Harford,13,16,13,10,71,73.24,Working Class Party,2020
+Howard,4,9,26,6,58,77.59,Working Class Party,2020
+Kent,3,4,4,1,11,109.09,Working Class Party,2020
+Montgomery,20,21,118,29,229,82.1,Working Class Party,2020
+Prince George's,24,40,119,28,288,73.26,Working Class Party,2020
+Queen Anne's,1,4,3,0,11,72.73,Working Class Party,2020
+Saint Mary's,5,7,14,5,38,81.58,Working Class Party,2020
+Somerset,0,0,1,0,8,12.5,Working Class Party,2020
+Talbot,1,4,3,0,12,66.67,Working Class Party,2020
+Washington,5,4,13,7,43,67.44,Working Class Party,2020
+Wicomico,7,10,5,3,44,56.82,Working Class Party,2020
+Worcester,2,0,3,0,12,41.67,Working Class Party,2020
+Allegany,77,60,94,5,395,59.75,Other,2020
+Anne Arundel,257,511,948,161,2715,69.13,Other,2020
+Baltimore City,265,286,628,229,3289,42.81,Other,2020
+Baltimore County,551,1104,1779,123,5872,60.58,Other,2020
+Calvert,98,85,164,8,567,62.61,Other,2020
+Caroline,38,40,23,6,163,65.64,Other,2020
+Carroll,193,225,323,13,1072,70.34,Other,2020
+Cecil,123,131,154,18,727,58.6,Other,2020
+Charles,74,146,216,12,763,58.72,Other,2020
+Dorchester,23,41,24,1,148,60.14,Other,2020
+Frederick,109,123,243,26,801,62.55,Other,2020
+Garrett,14,54,39,2,154,70.78,Other,2020
+Harford,200,416,383,36,1535,67.43,Other,2020
+Howard,154,468,727,24,2035,67.47,Other,2020
+Kent,15,28,34,6,116,71.55,Other,2020
+Montgomery,367,839,2738,152,5816,70.43,Other,2020
+Prince George's,541,1324,1994,211,11179,36.41,Other,2020
+Queen Anne's,36,86,61,5,280,67.14,Other,2020
+Saint Mary's,110,132,133,7,606,63.04,Other,2020
+Somerset,10,31,15,4,94,63.83,Other,2020
+Talbot,20,73,78,5,248,70.97,Other,2020
+Washington,150,93,223,15,875,54.97,Other,2020
+Wicomico,92,136,122,18,646,56.97,Other,2020
+Worcester,55,131,114,16,440,71.82,Other,2020
+Allegany,1772,1096,1143,169,7674,54.47,Unaffiliated,2020
+Anne Arundel,9041,20898,29588,2246,90162,68.51,Unaffiliated,2020
+Baltimore City,3983,6119,13414,1796,52450,48.26,Unaffiliated,2020
+Baltimore County,10791,18921,30274,2319,100576,61.95,Unaffiliated,2020
+Calvert,2578,2317,3836,118,14178,62.41,Unaffiliated,2020
+Caroline,838,1068,622,86,4208,62.12,Unaffiliated,2020
+Carroll,5244,5679,6778,393,25770,70.21,Unaffiliated,2020
+Cecil,3179,2623,2649,212,15110,57.33,Unaffiliated,2020
+Charles,2189,4917,5157,512,19849,64.36,Unaffiliated,2020
+Dorchester,569,774,555,36,3348,57.77,Unaffiliated,2020
+Frederick,6192,10240,12910,922,42961,70.45,Unaffiliated,2020
+Garrett,336,792,423,55,2600,61.77,Unaffiliated,2020
+Harford,5457,11157,9205,794,37942,70.14,Unaffiliated,2020
+Howard,4230,12776,20975,1112,51909,75.31,Unaffiliated,2020
+Kent,339,650,539,56,2293,69.08,Unaffiliated,2020
+Montgomery,10340,26873,65497,4262,147417,72.56,Unaffiliated,2020
+Prince George's,5955,14108,23677,2815,78012,59.68,Unaffiliated,2020
+Queen Anne's,893,2516,1566,161,7133,72,Unaffiliated,2020
+Saint Mary's,2556,3516,4079,254,15661,66.44,Unaffiliated,2020
+Somerset,376,470,303,71,2048,59.57,Unaffiliated,2020
+Talbot,562,1490,1517,69,5122,71.03,Unaffiliated,2020
+Washington,4615,2630,3811,386,20509,55.79,Unaffiliated,2020
+Wicomico,1952,2762,2325,293,12291,59.65,Unaffiliated,2020
+Worcester,1327,1981,1602,211,7565,67.69,Unaffiliated,2020
+Allegany,18201,7198,5634,1350,43446,74.54,Statewide,2024
+Anne Arundel,113836,101527,83956,12766,412520,75.65,Statewide,2024
+Baltimore City,94276,52947,61925,23501,399506,58.23,Statewide,2024
+Baltimore County,157715,126138,109336,21153,575365,72.01,Statewide,2024
+Calvert,16923,23150,12624,1495,69361,78.13,Statewide,2024
+Caroline,8212,5486,2169,361,21960,73.9,Statewide,2024
+Carroll,44504,34983,21077,2423,129250,79.68,Statewide,2024
+Cecil,23492,18168,9500,1570,72451,72.78,Statewide,2024
+Charles,34439,34722,18752,4062,125108,73.52,Statewide,2024
+Dorchester,8273,5095,3040,404,23672,71.02,Statewide,2024
+Frederick,67950,46371,36857,5191,203331,76.9,Statewide,2024
+Garrett,7746,5314,2471,329,20549,77.18,Statewide,2024
+Harford,63573,55356,27661,3655,192898,77.89,Statewide,2024
+Howard,67918,59647,48856,6297,236641,77.21,Statewide,2024
+Kent,4922,3609,2306,335,14126,79.09,Statewide,2024
+Montgomery,172134,154582,166773,27433,683515,76.21,Statewide,2024
+Prince George's,128147,148969,99166,28688,610390,66.35,Statewide,2024
+Queen Anne's,12137,13737,5743,791,40876,79.28,Statewide,2024
+Saint Mary's,22196,23845,11060,1690,76628,76.72,Statewide,2024
+Somerset,4432,3617,1486,608,14302,70.92,Statewide,2024
+Talbot,7687,9282,5382,570,28508,80.4,Statewide,2024
+Washington,31309,25012,14431,2479,100648,72.76,Statewide,2024
+Wicomico,20046,16286,8598,1866,66274,70.61,Statewide,2024
+Worcester,15066,9904,6980,976,43247,76.13,Statewide,2024
+Allegany,3648,1617,2459,423,10812,75.35,Democrat,2024
+Anne Arundel,41513,41455,46309,5657,172652,78.15,Democrat,2024
+Baltimore City,71900,44453,51803,17399,298865,62.09,Democrat,2024
+Baltimore County,76310,68533,71054,11990,306847,74.27,Democrat,2024
+Calvert,5005,6737,6288,511,23494,78.92,Democrat,2024
+Caroline,1845,1284,989,95,5936,70.97,Democrat,2024
+Carroll,8866,7955,9401,709,33091,81.38,Democrat,2024
+Cecil,5065,3880,3962,418,19013,70.08,Democrat,2024
+Charles,20054,21662,12999,2580,75333,76.06,Democrat,2024
+Dorchester,2607,1896,1730,164,9551,66.98,Democrat,2024
+Frederick,22842,16473,20986,2212,78431,79.7,Democrat,2024
+Garrett,947,763,921,41,3451,77.43,Democrat,2024
+Harford,17820,17184,13343,1421,64081,77.66,Democrat,2024
+Howard,31930,32407,30788,3438,122630,80.37,Democrat,2024
+Kent,1504,1543,1378,138,5719,79.79,Democrat,2024
+Montgomery,96738,96019,115788,15847,403843,80.33,Democrat,2024
+Prince George's,94605,123541,81657,20913,455749,70.37,Democrat,2024
+Queen Anne's,2645,3278,2606,228,11165,78.43,Democrat,2024
+Saint Mary's,6217,6549,5330,593,24789,75.39,Democrat,2024
+Somerset,1436,1103,745,336,5326,67.97,Democrat,2024
+Talbot,2340,3166,2842,244,10534,81.56,Democrat,2024
+Washington,8039,6275,6964,836,30537,72.42,Democrat,2024
+Wicomico,6528,5950,4602,795,25881,69.07,Democrat,2024
+Worcester,4176,2487,3259,307,13586,75.29,Democrat,2024
+Allegany,11199,4578,2303,549,23016,80.94,Republican,2024
+Anne Arundel,42244,39713,18829,3332,129077,80.66,Republican,2024
+Baltimore City,7463,2969,3167,1585,29211,51.98,Republican,2024
+Baltimore County,46758,38175,20212,4174,139293,78.48,Republican,2024
+Calvert,7519,11954,3798,586,28397,84.01,Republican,2024
+Caroline,4620,3419,764,179,10830,82.94,Republican,2024
+Carroll,24808,20781,7442,1035,63932,84.57,Republican,2024
+Cecil,13002,11335,3688,736,34984,82.21,Republican,2024
+Charles,7229,7860,2861,601,23363,79.4,Republican,2024
+Dorchester,4283,2546,898,146,9456,83.26,Republican,2024
+Frederick,26772,19903,8070,1425,68686,81.78,Republican,2024
+Garrett,5745,3992,1217,228,13758,81.28,Republican,2024
+Harford,30493,28370,8620,1209,80972,84.83,Republican,2024
+Howard,16779,13998,7186,1035,48498,80.41,Republican,2024
+Kent,2418,1519,576,114,5411,85.51,Republican,2024
+Montgomery,28650,26037,17805,3757,98946,77.06,Republican,2024
+Prince George's,9691,8190,5233,2020,40327,62.33,Republican,2024
+Queen Anne's,6690,8138,2008,353,20302,84.67,Republican,2024
+Saint Mary's,10443,12883,3429,636,32638,83.92,Republican,2024
+Somerset,2254,2091,520,116,6201,80.33,Republican,2024
+Talbot,3682,4606,1492,169,11597,85.79,Republican,2024
+Washington,16103,14338,4689,905,44553,80.88,Republican,2024
+Wicomico,8992,7697,2496,558,24188,81.62,Republican,2024
+Worcester,7749,5745,2452,436,19748,82.96,Republican,2024
+Allegany,24,3,8,8,63,68.25,NLM,2024
+Anne Arundel,167,91,155,42,699,65.09,NLM,2024
+Baltimore City,135,40,113,103,698,56.02,NLM,2024
+Baltimore County,188,78,174,83,864,60.53,NLM,2024
+Calvert,23,14,32,5,95,77.89,NLM,2024
+Caroline,11,2,2,1,31,51.61,NLM,2024
+Carroll,27,18,25,5,122,61.48,NLM,2024
+Cecil,31,8,29,4,126,57.14,NLM,2024
+Charles,36,20,37,19,160,70,NLM,2024
+Dorchester,8,3,3,0,30,46.67,NLM,2024
+Frederick,68,28,80,14,274,69.34,NLM,2024
+Garrett,6,3,3,2,24,58.33,NLM,2024
+Harford,81,32,49,11,276,62.68,NLM,2024
+Howard,85,47,77,29,346,68.79,NLM,2024
+Kent,4,3,3,4,21,66.67,NLM,2024
+Montgomery,223,122,319,76,1053,70.28,NLM,2024
+Prince George's,225,124,211,122,1068,63.86,NLM,2024
+Queen Anne's,13,8,11,2,48,70.83,NLM,2024
+Saint Mary's,26,13,23,8,107,65.42,NLM,2024
+Somerset,7,0,1,5,19,68.42,NLM,2024
+Talbot,3,7,6,0,32,50,NLM,2024
+Washington,35,15,30,6,149,57.72,NLM,2024
+Wicomico,24,14,14,12,122,52.46,NLM,2024
+Worcester,20,6,11,2,56,69.64,NLM,2024
+Allegany,99,26,16,11,274,55.47,Libertarian,2024
+Anne Arundel,817,411,280,94,2491,64.31,Libertarian,2024
+Baltimore City,324,87,94,82,1254,46.81,Libertarian,2024
+Baltimore County,909,399,271,98,2699,62.13,Libertarian,2024
+Calvert,140,117,43,14,452,69.47,Libertarian,2024
+Caroline,40,20,9,3,124,58.06,Libertarian,2024
+Carroll,366,147,66,18,853,69.99,Libertarian,2024
+Cecil,185,72,30,13,481,62.37,Libertarian,2024
+Charles,121,90,33,23,448,59.6,Libertarian,2024
+Dorchester,32,17,3,5,110,51.82,Libertarian,2024
+Frederick,481,187,124,33,1252,65.89,Libertarian,2024
+Garrett,35,25,5,1,106,62.26,Libertarian,2024
+Harford,466,281,106,32,1281,69.09,Libertarian,2024
+Howard,321,181,98,27,959,65.38,Libertarian,2024
+Kent,27,6,4,1,71,53.52,Libertarian,2024
+Montgomery,690,374,323,109,2481,60.3,Libertarian,2024
+Prince George's,389,216,152,101,1648,52.06,Libertarian,2024
+Queen Anne's,88,57,13,7,237,69.62,Libertarian,2024
+Saint Mary's,164,117,54,10,517,66.73,Libertarian,2024
+Somerset,26,14,6,5,76,67.11,Libertarian,2024
+Talbot,54,40,17,2,174,64.94,Libertarian,2024
+Washington,227,104,51,22,662,61.03,Libertarian,2024
+Wicomico,119,68,30,16,381,61.15,Libertarian,2024
+Worcester,85,46,21,6,246,64.23,Libertarian,2024
+Allegany,140,64,31,16,495,50.71,Other,2024
+Anne Arundel,881,583,395,124,3678,53.92,Other,2024
+Baltimore City,803,306,224,528,5020,37.07,Other,2024
+Baltimore County,1585,1079,520,218,6892,49.36,Other,2024
+Calvert,133,156,77,19,630,61.11,Other,2024
+Caroline,68,24,19,3,222,51.35,Other,2024
+Carroll,356,273,106,28,1187,64.28,Other,2024
+Cecil,193,142,66,12,810,50.99,Other,2024
+Charles,248,183,86,36,1092,50.64,Other,2024
+Dorchester,65,40,11,4,252,47.62,Other,2024
+Frederick,427,201,143,57,1468,56.4,Other,2024
+Garrett,41,45,15,4,182,57.69,Other,2024
+Harford,528,414,124,46,2002,55.54,Other,2024
+Howard,577,416,192,47,2148,57.36,Other,2024
+Kent,44,28,8,2,126,65.08,Other,2024
+Montgomery,1432,1012,634,246,6031,55.12,Other,2024
+Prince George's,1529,1214,432,299,11549,30.08,Other,2024
+Queen Anne's,83,95,26,8,328,64.63,Other,2024
+Saint Mary's,203,174,49,13,726,60.47,Other,2024
+Somerset,28,26,15,12,149,54.36,Other,2024
+Talbot,58,66,24,3,242,62.4,Other,2024
+Washington,203,179,82,43,985,51.47,Other,2024
+Wicomico,169,121,51,23,798,45.61,Other,2024
+Worcester,143,87,73,15,499,63.73,Other,2024
+Allegany,3082,908,815,342,8730,58.96,Unaffiliated,2024
+Anne Arundel,28115,19236,17908,3490,103458,66.45,Unaffiliated,2024
+Baltimore City,13517,5057,6434,3764,63722,45.15,Unaffiliated,2024
+Baltimore County,31800,17817,17001,4550,118059,60.28,Unaffiliated,2024
+Calvert,4081,4169,2379,359,16229,67.71,Unaffiliated,2024
+Caroline,1621,732,383,80,4791,58.78,Unaffiliated,2024
+Carroll,10044,5789,4018,624,29928,68.41,Unaffiliated,2024
+Cecil,4993,2724,1721,386,16965,57.91,Unaffiliated,2024
+Charles,6719,4892,2724,796,24603,61.5,Unaffiliated,2024
+Dorchester,1276,591,392,85,4257,55.06,Unaffiliated,2024
+Frederick,17303,9555,7425,1440,52988,67.42,Unaffiliated,2024
+Garrett,966,485,309,51,3010,60.17,Unaffiliated,2024
+Harford,14141,9054,5389,931,44122,66.89,Unaffiliated,2024
+Howard,18172,12569,10476,1702,61796,69.45,Unaffiliated,2024
+Kent,920,509,337,76,2764,66.64,Unaffiliated,2024
+Montgomery,44232,30907,31759,7335,170306,67.08,Unaffiliated,2024
+Prince George's,21601,15625,11407,5174,99412,54.13,Unaffiliated,2024
+Queen Anne's,2600,2156,1073,191,8753,68.78,Unaffiliated,2024
+Saint Mary's,5124,4099,2170,427,17785,66.46,Unaffiliated,2024
+Somerset,677,382,198,132,2514,55.25,Unaffiliated,2024
+Talbot,1546,1393,998,151,5905,69.23,Unaffiliated,2024
+Washington,6672,4087,2594,663,23635,59.3,Unaffiliated,2024
+Wicomico,4205,2421,1397,457,14836,57.16,Unaffiliated,2024
+Worcester,2881,1530,1161,210,9070,63.75,Unaffiliated,2024
+Allegany,9,2,2,1,56,25,Green,2024
+Anne Arundel,99,38,80,27,465,52.47,Green,2024
+Baltimore City,134,35,90,40,736,40.63,Green,2024
+Baltimore County,165,57,104,40,711,51.48,Green,2024
+Calvert,22,3,7,1,64,51.56,Green,2024
+Caroline,7,5,3,0,26,57.69,Green,2024
+Carroll,37,20,19,4,137,58.39,Green,2024
+Cecil,23,7,4,1,72,48.61,Green,2024
+Charles,32,15,12,7,109,60.55,Green,2024
+Dorchester,2,2,3,0,16,43.75,Green,2024
+Frederick,57,24,29,10,232,51.72,Green,2024
+Garrett,6,1,1,2,18,55.56,Green,2024
+Harford,44,21,30,5,164,60.98,Green,2024
+Howard,54,29,39,19,264,53.41,Green,2024
+Kent,5,1,0,0,14,42.86,Green,2024
+Montgomery,169,111,145,63,855,57.08,Green,2024
+Prince George's,107,59,74,59,637,46.94,Green,2024
+Queen Anne's,18,5,6,2,43,72.09,Green,2024
+Saint Mary's,19,10,5,3,66,56.06,Green,2024
+Somerset,4,1,1,2,17,47.06,Green,2024
+Talbot,4,4,3,1,24,50,Green,2024
+Washington,30,14,21,4,127,54.33,Green,2024
+Wicomico,9,15,8,5,68,54.41,Green,2024
+Worcester,12,3,3,0,42,42.86,Green,2024
